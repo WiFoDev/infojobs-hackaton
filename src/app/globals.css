@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  @apply bg-background;
+  @apply text-white;
+  @apply flex flex-col min-h-screen;
+}
+
+h1 {
+  @apply text-headline;
+}
+
+p {
+  @apply text-parragraf;
+}
