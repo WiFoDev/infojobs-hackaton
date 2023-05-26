@@ -1,3 +1,5 @@
+import {Logo} from "./components";
+
 import "./globals.css";
 import {Inter} from "next/font/google";
 
@@ -17,8 +19,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <header className="sticky top-0 z-20 w-full bg-background/50 backdrop-blur-sm">
-          <nav className="flex h-16 mx-auto max-w-screen-standar items-center justify-end gap-2 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]">
-            <div className="mr-auto text-xl">My APP</div>
+          <nav className="flex h-16 mx-auto max-w-screen-standar items-center justify-between gap-2 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]">
+            <Logo height={35} />
             <ul className="text-lg">Navigation List For The Page</ul>
           </nav>
         </header>

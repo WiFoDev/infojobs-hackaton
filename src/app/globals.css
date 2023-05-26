@@ -5,7 +5,7 @@
 html,
 body {
   @apply bg-background;
-  @apply text-white;
+  @apply text-black;
   @apply flex flex-col min-h-screen;
 }
 
