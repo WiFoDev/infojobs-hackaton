@@ -12,9 +12,9 @@ module.exports = {
         headline: "#fffffe",
         parragraf: "#a7a9be",
         "button-text": "#fffffe",
-        primary: "#ff8906",
-        secondary: "#f25f4c",
-        tertiary: "#e53170",
+        primary: "#167db7",
+        secondary: "#797a7a",
+        tertiary: "#f3f9fb",
       },
       backgroundImage: (theme) => ({
         "gradient-rainbow":
