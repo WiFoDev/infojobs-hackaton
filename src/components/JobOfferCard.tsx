@@ -23,7 +23,7 @@ export default function JobOfferCard({
   logoUrl,
 }: JobOfferCardProps) {
   return (
-    <li>
+    <li className="list-none">
       <Link
         className="flex items-start gap-4 rounded-lg bg-white p-4 transition-all hover:bg-tertiary"
         href={`/offer/${id}`}

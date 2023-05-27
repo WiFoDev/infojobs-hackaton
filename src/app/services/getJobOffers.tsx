@@ -53,7 +53,7 @@ interface Category {
   value: string;
 }
 
-async function getJobOfferDeatilById(offerId: string) {
+export async function getJobOfferDeatilById(offerId: string) {
   const response = await fetch(
     `https://api.infojobs.net/api/7/offer/${offerId}`,
     {
@@ -72,6 +72,8 @@ async function getJobOfferDeatilById(offerId: string) {
     province: {value},
     teleworking,
     description,
+    salaryDescription,
+    contractType,
   }: ApiOfferDetailResult = await response.json();
 
   return {
@@ -83,6 +85,8 @@ async function getJobOfferDeatilById(offerId: string) {
     location: value,
     workType: teleworking?.value ?? "No definido",
     description,
+    salaryDescription,
+    contractType: contractType.value,
   };
 }
 
