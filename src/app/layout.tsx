@@ -28,11 +28,11 @@ export default function RootLayout({
         <main className="mx-auto grid w-full max-w-screen-standar flex-1 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]">
           {children}
         </main>
-        <footer className="relative pb-[env(safe-area-inset-bottom)]">
+        {/* <footer className="relative pb-[env(safe-area-inset-bottom)]">
           <div className="mx-auto flex max-w-screen-standar justify-center py-6 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]">
             Made with ❤️ by WiFo
           </div>
-        </footer>
+        </footer> */}
       </body>
     </html>
   );

@@ -53,7 +53,11 @@ interface Category {
   value: string;
 }
 
-export async function getJobOfferDeatilById(offerId: string) {
+export async function getJobOfferDeatilById(
+  offerId: string,
+  prevRequirements?: string,
+  prevTeleworking?: string,
+) {
   const response = await fetch(
     `https://api.infojobs.net/api/7/offer/${offerId}`,
     {
@@ -70,7 +74,6 @@ export async function getJobOfferDeatilById(offerId: string) {
     requirementMin,
     profile: {name, logoUrl},
     province: {value},
-    teleworking,
     description,
     salaryDescription,
     contractType,
@@ -79,11 +82,11 @@ export async function getJobOfferDeatilById(offerId: string) {
   return {
     id,
     title,
-    requirementMin,
+    requirementMin: prevRequirements ?? requirementMin,
     companyName: name,
     logoUrl,
     location: value,
-    workType: teleworking?.value ?? "No definido",
+    workType: prevTeleworking ?? "No definido",
     description,
     salaryDescription,
     contractType: contractType.value,
@@ -104,12 +107,13 @@ export async function getJobOffers() {
     await response.json();
 
   const validOffers = items.filter(
-    ({salaryMin, requirementMin, teleworking}) =>
-      salaryMin.value !== "0" &&
+    ({requirementMin, teleworking}) =>
       requirementMin !== "" &&
       teleworking &&
       teleworking.value !== "",
   );
 
-  return validOffers.map(({id}) => getJobOfferDeatilById(id));
+  return validOffers.map(({id, requirementMin, teleworking}) =>
+    getJobOfferDeatilById(id, requirementMin, teleworking.value),
+  );
 }

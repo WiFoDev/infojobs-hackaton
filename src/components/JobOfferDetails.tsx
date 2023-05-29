@@ -3,7 +3,15 @@ import Link from "next/link";
 
 import {getJobOfferDeatilById} from "@/app/services/getJobOffers";
 
-export default async function getJobOfferDetails({id}: {id: string}) {
+interface JobOfferDetailsProps {
+  id: string;
+  prevTeleworking?: string;
+}
+
+export default async function getJobOfferDetails({
+  id,
+  prevTeleworking,
+}: JobOfferDetailsProps) {
   const {
     companyName,
     logoUrl,
@@ -12,7 +20,7 @@ export default async function getJobOfferDetails({id}: {id: string}) {
     workType,
     salaryDescription,
     contractType,
-  } = await getJobOfferDeatilById(id);
+  } = await getJobOfferDeatilById(id, prevTeleworking);
 
   return (
     <div className="flex w-full flex-col gap-4 rounded-lg bg-white p-6">
@@ -26,7 +34,7 @@ export default async function getJobOfferDetails({id}: {id: string}) {
           />
         </div>
         <div className="flex flex-col">
-          <h1 className="text-3xl font-medium leading-6 text-black">
+          <h1 className="line-clamp-1 text-3xl font-medium leading-6 text-black">
             {title}
           </h1>
           <h2 className="text-lg font-light text-primary">
